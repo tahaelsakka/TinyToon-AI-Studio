@@ -1,0 +1,14 @@
+name: TinyToon AI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello TinyToon
+        run: |
+          echo "TinyToon AI Studio Started!"
+          echo "The workflow is working successfully."
