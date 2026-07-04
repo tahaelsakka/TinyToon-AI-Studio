@@ -1,2 +1,5 @@
-moviepy
+requests
 Pillow
+moviepy
+imageio
+imageio-ffmpeg
