@@ -23,7 +23,6 @@ No text.
 Scene:
 {scene}
 """
-
 def generate_image(prompt, output_path):
     image = client.text_to_image(
         prompt,
@@ -53,7 +52,5 @@ def generate_image(prompt, output_path):
             print(f"Failed to generate image {i}: {e}")
 
     print("Image generation completed.")
-
-
 if __name__ == "__main__":
     generate_all_images()
