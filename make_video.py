@@ -1,1 +1,3 @@
-print("test")
+from moviepy import ImageClip
+
+print("MoviePy loaded")
