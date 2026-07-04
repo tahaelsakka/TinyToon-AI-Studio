@@ -4,11 +4,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Hello TinyToon
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install requirements
         run: |
-          echo "TinyToon AI Studio Started!"
-          echo "The workflow is working successfully."
+          pip install -r requirements.txt
+
+      - name: Run TinyToon
+        run: |
+          python main.py
+
+      - name: Upload thumbnail
+        uses: actions/upload-artifact@v4
+        with:
+          name: thumbnail
+          path: thumbnail.png
