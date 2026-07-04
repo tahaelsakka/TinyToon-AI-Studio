@@ -1,15 +1,12 @@
-from prompts import create_prompt
+from generate_images import generate_all_images
+from make_video import make_video
 
-with open("story.txt", "r", encoding="utf-8") as f:
-    scenes = [line.strip() for line in f if line.strip()]
+print("=== TinyToon AI Studio ===")
 
-print("=== TinyToon AI ===\n")
+print("Generating images...")
+generate_all_images()
 
-for i, scene in enumerate(scenes, 1):
-    prompt = create_prompt(scene)
+print("Creating video...")
+make_video()
 
-    print(f"Scene {i}")
-    print(prompt)
-    print("-" * 40)
-
-from make_video import *
+print("Done!")
