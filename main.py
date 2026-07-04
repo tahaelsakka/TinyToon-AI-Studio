@@ -1,11 +1,14 @@
-with open("story.txt", "r", encoding="utf-8") as f:
-    story = f.read()
+from PIL import Image, ImageDraw
 
-scenes = story.split(".")
+with open("story.txt", "r") as f:
+    story = f.readlines()
 
-print("Scenes:\n")
+for i, line in enumerate(story):
+    img = Image.new("RGB", (1280, 720), color="skyblue")
+    draw = ImageDraw.Draw(img)
 
-for i, scene in enumerate(scenes):
-    scene = scene.strip()
-    if scene:
-        print(f"Scene {i+1}: {scene}")
+    draw.text((80, 300), line.strip(), fill="black")
+
+    img.save(f"scene_{i+1}.png")
+
+print("Scenes created successfully!")
