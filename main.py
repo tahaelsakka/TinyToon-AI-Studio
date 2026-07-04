@@ -1,10 +1,11 @@
-from PIL import Image, ImageDraw
+with open("story.txt", "r", encoding="utf-8") as f:
+    story = f.read()
 
-img = Image.new("RGB", (1280, 720), color="skyblue")
-draw = ImageDraw.Draw(img)
+scenes = story.split(".")
 
-draw.text((350, 330), "TinyToon AI Studio", fill="black")
+print("Scenes:\n")
 
-img.save("thumbnail.png")
-
-print("Thumbnail created successfully!")
+for i, scene in enumerate(scenes):
+    scene = scene.strip()
+    if scene:
+        print(f"Scene {i+1}: {scene}")
