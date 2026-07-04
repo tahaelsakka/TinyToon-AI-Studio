@@ -1,29 +1,13 @@
-from PIL import Image, ImageDraw, ImageFont
-import textwrap
+from prompts import create_prompt
 
-# قراءة القصة
 with open("story.txt", "r", encoding="utf-8") as f:
-    story = f.read()
+    scenes = [line.strip() for line in f if line.strip()]
 
-# إنشاء صورة
-img = Image.new("RGB", (1280, 720), color=(135, 206, 250))
-draw = ImageDraw.Draw(img)
+print("=== TinyToon AI ===\n")
 
-try:
-    font = ImageFont.truetype("arial.ttf", 42)
-except:
-    font = ImageFont.load_default()
+for i, scene in enumerate(scenes, 1):
+    prompt = create_prompt(scene)
 
-text = "\n".join(textwrap.wrap(story, width=35))
-
-draw.multiline_text(
-    (60, 60),
-    text,
-    fill="black",
-    font=font,
-    spacing=10
-)
-
-img.save("thumbnail.png")
-
-print("Thumbnail created successfully!")
+    print(f"Scene {i}")
+    print(prompt)
+    print("-" * 40)
