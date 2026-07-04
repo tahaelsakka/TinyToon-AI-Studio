@@ -34,3 +34,20 @@ No text.
 Scene:
 {scene}
 """
+def generate_all_images():
+    scenes = load_story()
+
+    os.makedirs("images", exist_ok=True)
+
+    for index, scene in enumerate(scenes, start=1):
+        prompt = create_prompt(scene)
+        output = f"images/scene_{index}.png"
+
+        print(f"Generating {output}...")
+        generate_image(prompt, output)
+
+    print("All images generated successfully.")
+
+
+if __name__ == "__main__":
+    generate_all_images()
