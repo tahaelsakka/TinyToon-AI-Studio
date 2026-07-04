@@ -1,5 +1,7 @@
 requests
+huggingface_hub
 Pillow
 moviepy
 imageio
 imageio-ffmpeg
+python-dotenv
