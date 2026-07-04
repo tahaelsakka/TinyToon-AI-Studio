@@ -11,4 +11,5 @@ for i, scene in enumerate(scenes, 1):
     print(f"Scene {i}")
     print(prompt)
     print("-" * 40)
-    from make_video import *
+
+from make_video import *
